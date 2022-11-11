@@ -24,7 +24,7 @@
 
   
 
-  <title>小伙伴们 | Y X I S M E</title>
+  <title>Codeforces 1744B. Even-Odd Increments | Y X I S M E</title>
 
   
 
@@ -47,7 +47,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,36 +97,108 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">小伙伴们</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">Codeforces 1744B. Even-Odd Increments</h1>
+          <h2 class="title-sub-wrap">
+            <strong>yxixme</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-11-11T08:48:12.016Z" itemprop="datePublished">2022-11-11</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <p>time limit per test2 seconds<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>You are given n of integers a1,a2,…,an. Process q queries of two types:</p>
+<p>query of the form “0 xj”: add the value xj to all even elements of the array a,<br>query of the form “1 xj”: add the value xj to all odd elements of the array a.<br>Note that when processing the query, we look specifically at the odd&#x2F;even value of ai, not its index.</p>
+<p>After processing each query, print the sum of the elements of the array a.</p>
+<p>Please note that the answer for some test cases won’t fit into 32-bit integer type, so you should use at least 64-bit integer type in your programming language (like long long for C++).</p>
+<p>Input<br>The first line of the input contains an integer t (1≤t≤104) — the number of test cases.</p>
+<p>The descriptions of the test cases follow.</p>
+<p>The first line of each test case contains two integers n and q (1≤n, q≤105) — the length of array a and the number of queries.</p>
+<p>The second line of each test case contains exactly n integers: a1,a2,…,an (1≤ai≤109) — elements of the array a.</p>
+<p>The following q lines contain queries as two integers typej and xj (0≤typej≤1, 1≤xj≤104).</p>
+<p>It is guaranteed that the sum of values n over all test cases in a test does not exceed 105. Similarly, the sum of values q over all test cases does not exceed 105.</p>
+<p>Output<br>For each test case, print q numbers: the sum of the elements of the array a after processing a query.</p>
+<p>Example<br>inputCopy<br>4<br>1 1<br>1<br>1 1<br>3 3<br>1 2 4<br>0 2<br>1 3<br>0 5<br>6 7<br>1 3 2 4 10 48<br>1 6<br>0 5<br>0 4<br>0 5<br>1 3<br>0 12<br>0 1<br>6 7<br>1000000000 1000000000 1000000000 11 15 17<br>0 17<br>1 10000<br>1 51<br>0 92<br>0 53<br>1 16<br>0 1<br>outputCopy<br>2<br>11<br>14<br>29<br>80<br>100<br>100<br>100<br>118<br>190<br>196<br>3000000094<br>3000060094<br>3000060400<br>3000060952<br>3000061270<br>3000061366<br>3000061366<br>Note<br>In the first test case, the array a&#x3D;[2] after the first query.</p>
+<p>In the third test case, the array a is modified as follows: [1,3,2,4,10,48] → [7,9,2,4,10,48] → [7,9,7,9,15,53] → [7,9,7,9,15,53] → [10,12,10,12,18,56] → [22,24,22,24,30,68] → [23,25,23,25,31,69].</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="type">long</span> <span class="type">long</span> n, q,sum=<span class="number">0</span>;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">		<span class="type">int</span> odd = <span class="number">0</span>, even = <span class="number">0</span>, x;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			cin &gt;&gt; x;</span><br><span class="line">			<span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">0</span>)odd++;</span><br><span class="line">			<span class="keyword">else</span> even++;</span><br><span class="line">			sum += x;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">long</span> <span class="type">long</span> ty, p;</span><br><span class="line">		<span class="keyword">while</span> (q--) &#123;</span><br><span class="line">			cin &gt;&gt; ty &gt;&gt; p;</span><br><span class="line">			<span class="keyword">if</span> (ty == <span class="number">0</span>) &#123; </span><br><span class="line">				sum += p * odd;</span><br><span class="line">				<span class="keyword">if</span> (p % <span class="number">2</span> == <span class="number">1</span>) even += odd, odd = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123; </span><br><span class="line">				sum += p * even;</span><br><span class="line">				<span class="keyword">if</span> (p % <span class="number">2</span> == <span class="number">1</span>)odd += even, even = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
       </section>
 
       
       
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201744D%20D.Divisibility%20by%202%5En/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744D. Divisibility by 2^n</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/CodeForces1744A.%20Number%20Replacement/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744A. Number Replacement</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -163,6 +235,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -208,7 +282,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">

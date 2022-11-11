@@ -24,7 +24,7 @@
 
   
 
-  <title>小伙伴们 | Y X I S M E</title>
+  <title>Codeforces 1744A. Number Replacement | Y X I S M E</title>
 
   
 
@@ -47,7 +47,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,36 +97,110 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">小伙伴们</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">Codeforces 1744A. Number Replacement</h1>
+          <h2 class="title-sub-wrap">
+            <strong>yxixme</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-11-11T08:47:59.179Z" itemprop="datePublished">2022-11-11</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <p>A. Number Replacement<br>time limit per test2 seconds<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>An integer array a1,a2,…,an is being transformed into an array of lowercase English letters using the following prodecure:</p>
+<p>While there is at least one number in the array:</p>
+<p>Choose any number x from the array a, and any letter of the English alphabet y.<br>Replace all occurrences of number x with the letter y.<br>For example, if we initially had an array a&#x3D;[2,3,2,4,1], then we could transform it the following way:</p>
+<p>Choose the number 2 and the letter c. After that a&#x3D;[c,3,c,4,1].<br>Choose the number 3 and the letter a. After that a&#x3D;[c,a,c,4,1].<br>Choose the number 4 and the letter t. After that a&#x3D;[c,a,c,t,1].<br>Choose the number 1 and the letter a. After that a&#x3D;[c,a,c,t,a].<br>After the transformation all letters are united into a string, in our example we get the string “cacta”.</p>
+<p>Having the array a and the string s determine if the string s could be got from the array a after the described transformation?</p>
+<p>Input<br>The first line contains a single integer t (1≤t≤103) — the number of test cases.</p>
+<p>Then the description of the test cases follows.</p>
+<p>The first line of each test case contains a single integer n (1≤n≤50) — the length of the array a and the string s.</p>
+<p>The second line of each test case contains exactly n integers: a1,a2,…,an (1≤ai≤50) — the elements of the array a.</p>
+<p>The third line of each test case contains a string s of length n, consisting of lowercase English letters.</p>
+<p>Output<br>For each test case, output “YES”, if we can get the string s from the array a, and “NO” otherwise. You can output each letter in any case.</p>
+<p>Example<br>inputCopy<br>7<br>5<br>2 3 2 4 1<br>cacta<br>1<br>50<br>a<br>2<br>11 22<br>ab<br>4<br>1 2 2 1<br>aaab<br>5<br>1 2 3 2 1<br>aaaaa<br>6<br>1 10 2 9 3 8<br>azzfdb<br>7<br>1 2 3 4 1 1 2<br>abababb<br>outputCopy<br>YES<br>YES<br>YES<br>NO<br>YES<br>YES<br>NO<br>Note<br>The first test case corresponds to the sample described in the statement.</p>
+<p>In the second test case we can choose the number 50 and the letter a.</p>
+<p>In the third test case we can choose the number 11 and the letter a, after that a&#x3D;[a,22]. Then we choose the number 22 and the letter b and get a&#x3D;[a,b].</p>
+<p>In the fifth test case we can change all numbers one by one to the letter a.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t,n;</span><br><span class="line">	string s;</span><br><span class="line">	<span class="type">int</span> a[<span class="number">55</span>];</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="type">int</span> b[<span class="number">55</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">		<span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		cin &gt;&gt; s;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (b[a[i]] != <span class="number">0</span> &amp;&amp; b[a[i]] != s[i]) &#123;</span><br><span class="line">				flag = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			b[a[i]] = s[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag) &#123; cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       </section>
 
       
       
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201744B.%20Even-Odd%20Increments/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744B. Even-Odd Increments</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201750B.%20Maximum%20Substring/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1750B. Maximum Substring</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -163,6 +237,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -208,7 +284,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">

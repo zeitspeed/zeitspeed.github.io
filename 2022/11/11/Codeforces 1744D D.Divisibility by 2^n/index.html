@@ -24,7 +24,7 @@
 
   
 
-  <title>小伙伴们 | Y X I S M E</title>
+  <title>Codeforces 1744D. Divisibility by 2^n | Y X I S M E</title>
 
   
 
@@ -47,7 +47,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,36 +97,110 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">小伙伴们</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">Codeforces 1744D. Divisibility by 2^n</h1>
+          <h2 class="title-sub-wrap">
+            <strong>yxixme</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-11-11T08:48:21.410Z" itemprop="datePublished">2022-11-11</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <p>D. Divisibility by 2^n<br>time limit per test2 seconds<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>You are given an array of positive integers a1,a2,…,an.</p>
+<p>Make the product of all the numbers in the array (that is, a1⋅a2⋅…⋅an) divisible by 2n.</p>
+<p>You can perform the following operation as many times as you like:</p>
+<p>select an arbitrary index i (1≤i≤n) and replace the value ai with ai&#x3D;ai⋅i.<br>You cannot apply the operation repeatedly to a single index. In other words, all selected values of i must be different.</p>
+<p>Find the smallest number of operations you need to perform to make the product of all the elements in the array divisible by 2n. Note that such a set of operations does not always exist.</p>
+<p>Input<br>The first line of the input contains a single integer t (1≤t≤104) — the number test cases.</p>
+<p>Then the descriptions of the input data sets follow.</p>
+<p>The first line of each test case contains a single integer n (1≤n≤2⋅105) — the length of array a.</p>
+<p>The second line of each test case contains exactly n integers: a1,a2,…,an (1≤ai≤109).</p>
+<p>It is guaranteed that the sum of n values over all test cases in a test does not exceed 2⋅105.</p>
+<p>Output<br>For each test case, print the least number of operations to make the product of all numbers in the array divisible by 2n. If the answer does not exist, print -1.</p>
+<p>Example<br>inputCopy<br>6<br>1<br>2<br>2<br>3 2<br>3<br>10 6 11<br>4<br>13 17 1 1<br>5<br>1 1 12 1 1<br>6<br>20 7 14 18 3 5<br>outputCopy<br>0<br>1<br>1<br>-1<br>2<br>1<br>Note<br>In the first test case, the product of all elements is initially 2, so no operations needed.</p>
+<p>In the second test case, the product of elements initially equals 6. We can apply the operation for i&#x3D;2, and then a2 becomes 2⋅2&#x3D;4, and the product of numbers becomes 3⋅4&#x3D;12, and this product of numbers is divided by 2n&#x3D;22&#x3D;4.</p>
+<p>In the fourth test case, even if we apply all possible operations, we still cannot make the product of numbers divisible by 2n  — it will be (13⋅1)⋅(17⋅2)⋅(1⋅3)⋅(1⋅4)&#x3D;5304, which does not divide by 2n&#x3D;24&#x3D;16.</p>
+<p>In the fifth test case, we can apply operations for i&#x3D;2 and i&#x3D;4.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="type">int</span> n, x;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt;<span class="built_in">v</span>(n);</span><br><span class="line">		<span class="type">int</span> cnt = <span class="number">0</span>, cnt1;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			cin &gt;&gt; x;</span><br><span class="line">			cnt1 = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span> (x % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				x /= <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">int</span> j = i;</span><br><span class="line">			<span class="keyword">while</span> (j % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				cnt1++;</span><br><span class="line">				j /= <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (cnt1 != <span class="number">0</span>)v.<span class="built_in">push_back</span>(cnt1);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">		<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = v.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; cnt &lt; n; i--) &#123;</span><br><span class="line">			cnt += v[i];</span><br><span class="line">			ans++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (cnt &lt; n)cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//code by yxisme</span></span><br><span class="line"><span class="comment">//code by 01100_10111</span></span><br></pre></td></tr></table></figure>
+
+
       </section>
 
       
       
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201744C.%20Traffic%20Light/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744C. Traffic Light</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201744B.%20Even-Odd%20Increments/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744B. Even-Odd Increments</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -163,6 +237,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -208,7 +284,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">

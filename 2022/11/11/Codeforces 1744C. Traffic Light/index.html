@@ -24,7 +24,7 @@
 
   
 
-  <title>小伙伴们 | Y X I S M E</title>
+  <title>Codeforces 1744C. Traffic Light | Y X I S M E</title>
 
   
 
@@ -47,7 +47,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,36 +97,99 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">小伙伴们</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">Codeforces 1744C. Traffic Light</h1>
+          <h2 class="title-sub-wrap">
+            <strong>yxixme</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-11-11T08:49:08.637Z" itemprop="datePublished">2022-11-11</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <p>C. Traffic Light<br>time limit per test1 second<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>You find yourself on an unusual crossroad with a weird traffic light. That traffic light has three possible colors: red (r), yellow (y), green (g). It is known that the traffic light repeats its colors every n seconds and at the i-th second the color si is on.</p>
+<p>That way, the order of the colors is described by a string. For example, if s&#x3D;”rggry”, then the traffic light works as the following: red-green-green-red-yellow-red-green-green-red-yellow- … and so on.</p>
+<p>More formally, you are given a string s1,s2,…,sn of length n. At the first second the color s1 is on, at the second — s2, …, at the n-th second the color sn is on, at the n+1-st second the color s1 is on and so on.</p>
+<p>You need to cross the road and that can only be done when the green color is on.</p>
+<p>You know which color is on the traffic light at the moment, but you don’t know the current moment of time. You need to find the minimum amount of time in which you are guaranteed to cross the road.</p>
+<p>You can assume that you cross the road immediately.</p>
+<p>For example, with s&#x3D;”rggry” and the current color r there are two options: either the green color will be on after 1 second, or after 3. That way, the answer is equal to 3 — that is the number of seconds that we are guaranteed to cross the road, if the current color is r.</p>
+<p>Input<br>The first line contains a single integer t (1≤t≤104) — the number of test cases.</p>
+<p>Then the description of the test cases follows.</p>
+<p>The first line of each test case contains an integer n and a symbol c (1≤n≤2⋅105, c is one of allowed traffic light colors r, y or g)— the length of the string s and the current color of the traffic light.</p>
+<p>The second line of each test case contains a string s of the length n, consisting of the letters r, y and g.</p>
+<p>It is guaranteed that the symbol g is in the string s and the symbol c is in the string s.</p>
+<p>It is guaranteed, that the sum of n over all test cases does not exceed 2⋅105.</p>
+<p>Output<br>For each test case output the minimal number of second in which you are guaranteed to cross the road.</p>
+<p>Example<br>inputCopy<br>6<br>5 r<br>rggry<br>1 g<br>g<br>3 r<br>rrg<br>5 y<br>yrrgy<br>7 r<br>rgrgyrg<br>9 y<br>rrrgyyygy<br>outputCopy<br>3<br>0<br>2<br>4<br>1<br>4<br>Note<br>The first test case is explained in the statement.</p>
+<p>In the second test case the green color is on so you can cross the road immediately.</p>
+<p>In the third test case, if the red color was on at the second second, then we would wait for the green color for one second, and if the red light was on at the first second, then we would wait for the green light for two seconds.</p>
+<p>In the fourth test case the longest we would wait for the green color is if we wait for it starting from the fifth second.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="type">char</span> c;</span><br><span class="line">		string s;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; c &gt;&gt; s;</span><br><span class="line">		s += s;</span><br><span class="line">		<span class="type">int</span> cnt = <span class="number">0</span>, maxv = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == c) flag = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == <span class="string">&#x27;g&#x27;</span>)flag = <span class="number">0</span>, maxv = <span class="built_in">max</span>(maxv, cnt), cnt = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span> (flag==<span class="number">1</span>)cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; maxv &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       </section>
 
       
       
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201744D%20D.Divisibility%20by%202%5En/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744D. Divisibility by 2^n</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -163,6 +226,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -208,7 +273,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">

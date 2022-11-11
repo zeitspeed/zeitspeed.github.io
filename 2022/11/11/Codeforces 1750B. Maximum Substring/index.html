@@ -24,7 +24,7 @@
 
   
 
-  <title>小伙伴们 | Y X I S M E</title>
+  <title>Codeforces 1750B. Maximum Substring | Y X I S M E</title>
 
   
 
@@ -47,7 +47,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,36 +97,110 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">小伙伴们</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">Codeforces 1750B. Maximum Substring</h1>
+          <h2 class="title-sub-wrap">
+            <strong>yxixme</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-11-11T08:46:59.973Z" itemprop="datePublished">2022-11-11</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <p>B. Maximum Substring</p>
+<p>A binary string is a string consisting only of the characters 0 and 1. You are given a binary string s.</p>
+<p>For some non-empty substring† t of string s containing x characters 0 and y characters 1, define its cost as:</p>
+<p>x⋅y, if x&gt;0 and y&gt;0;<br>x2, if x&gt;0 and y&#x3D;0;<br>y2, if x&#x3D;0 and y&gt;0.<br>Given a binary string s of length n, find the maximum cost across all its non-empty substrings.</p>
+<p>† A string a is a substring of a string b if a can be obtained from b by deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.</p>
+<p>Input<br>Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤105) — the number of test cases. The description of test cases follows.</p>
+<p>The first line of each test case contains a single integer n (1≤n≤2⋅105) — the length of the string s.</p>
+<p>The second line of each test case contains a binary string s of length n.</p>
+<p>It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.</p>
+<p>Output<br>For each test case, print a single integer — the maximum cost across all substrings.</p>
+<p>Example<br>inputCopy<br>6<br>5<br>11100<br>7<br>1100110<br>6<br>011110<br>7<br>1001010<br>4<br>1000<br>1<br>0<br>outputCopy<br>9<br>12<br>16<br>12<br>9<br>1<br>Note<br>In the first test case, we can take a substring 111. It contains 3 characters 1 and 0 characters 0. So a&#x3D;3, b&#x3D;0 and its cost is 32&#x3D;9.</p>
+<p>In the second test case, we can take the whole string. It contains 4 characters 1 and 3 characters 0. So a&#x3D;4, b&#x3D;3 and its cost is 4⋅3&#x3D;12.</p>
+<p>In the third test case, we can can take a substring 1111 and its cost is 42&#x3D;16.</p>
+<p>In the fourth test case, we can take the whole string and cost is 4⋅3&#x3D;12.</p>
+<p>In the fifth test case, we can take a substring 000 and its cost is 3⋅3&#x3D;9.</p>
+<p>In the sixth test case, we can only take the substring 0 and its cost is 1⋅1&#x3D;1.</p>
+<p>水</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ll n;</span><br><span class="line">	string s;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; s;</span><br><span class="line">	ll len1 = <span class="number">0</span>, len0 = <span class="number">0</span>;</span><br><span class="line">	ll maxv0=<span class="number">0</span>, maxv1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (s[n - <span class="number">1</span>] == <span class="string">&#x27;0&#x27;</span>)s[n] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">	<span class="keyword">else</span> s[n] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">	ll len00=<span class="number">0</span>, len11=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (s[i] == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">			len0++;</span><br><span class="line">			len00++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s[i] == <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[i + <span class="number">1</span>] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">			maxv0 = <span class="built_in">max</span>(maxv0, len0);</span><br><span class="line">			len0 = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s[i] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">			len1++;</span><br><span class="line">			len11++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s[i] == <span class="string">&#x27;1&#x27;</span> &amp;&amp; s[i + <span class="number">1</span>] == <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">			maxv1 = <span class="built_in">max</span>(maxv1, len1);</span><br><span class="line">			len1 = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	ll p = <span class="built_in">max</span>(<span class="built_in">pow</span>(maxv0, <span class="number">2</span>), <span class="built_in">pow</span>(maxv1, <span class="number">2</span>));</span><br><span class="line">	ll maxv = <span class="built_in">max</span>(p, len00 * len11);</span><br><span class="line">	cout &lt;&lt; maxv &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t; </span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//code by yxisme;</span></span><br><span class="line"><span class="comment">//code by 01100_10111;</span></span><br></pre></td></tr></table></figure>
       </section>
 
       
       
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/CodeForces1744A.%20Number%20Replacement/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1744A. Number Replacement</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201750A.%20Indirect%20Sort/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1750A. Indirect Sort</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -163,6 +237,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -208,7 +284,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
