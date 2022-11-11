@@ -24,7 +24,7 @@
 
   
 
-  <title>Hello World | Y X I S M E</title>
+  <title>Y X I S M E</title>
 
   
 
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Hello World</h1>
+          <h1 class="title-wrap"></h1>
           <h2 class="title-sub-wrap">
             <strong>yxixme</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-11-09T10:26:49.729Z" itemprop="datePublished">2022-11-09</time>
+            <time  class="article-date" datetime="2022-11-11T08:39:25.563Z" itemprop="datePublished">2022-11-11</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -133,25 +133,29 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        <p>-–</p>
+<p>title: Codeforces 1750A. Indirect Sort</p>
+<p>-–</p>
+<p>A. Indirect Sort</p>
+<p>You are given a permutation a1,a2,…,an of size n, where each integer from 1 to n appears exactly once.</p>
+<p>You can do the following operation any number of times (possibly, zero):</p>
+<p>Choose any three indices i,j,k (1≤i&lt;j&lt;k≤n).<br>If ai&gt;ak, replace ai with ai+aj. Otherwise, swap aj and ak.<br>Determine whether you can make the array a sorted in non-descending order.</p>
+<p>Input<br>Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤5000) — the number of test cases. The description of test cases follows.</p>
+<p>The first line of each test case contains a single integer n (3≤n≤10) — the length of the array a.</p>
+<p>The second line contains n integers a1,a2,…,an (1≤ai≤n, ai≠aj if i≠j) — the elements of the array a.</p>
+<p>Output<br>For each test case, output “Yes” (without quotes) if the array can be sorted in non-descending order, and “No” (without quotes) otherwise.</p>
+<p>You can output “Yes” and “No” in any case (for example, strings “YES”, “yEs” and “yes” will be recognized as a positive response).</p>
+<p>Example<br>inputCopy<br>7<br>3<br>1 2 3<br>3<br>1 3 2<br>7<br>5 3 4 7 6 2 1<br>7<br>7 6 5 4 3 2 1<br>5<br>2 1 4 5 3<br>5<br>2 1 3 4 5<br>7<br>1 2 6 7 4 3 5<br>outputCopy<br>Yes<br>Yes<br>No<br>No<br>No<br>No<br>Yes<br>Note<br>In the first test case, [1,2,3] is already sorted in non-descending order.</p>
+<p>In the second test case, we can choose i&#x3D;1,j&#x3D;2,k&#x3D;3. Since a1≤a3, swap a2 and a3, the array then becomes [1,2,3], which is sorted in non-descending order.</p>
+<p>In the seventh test case, we can do the following operations successively:</p>
+<p>Choose i&#x3D;5,j&#x3D;6,k&#x3D;7. Since a5≤a7, swap a6 and a7, the array then becomes [1,2,6,7,4,5,3].<br>Choose i&#x3D;5,j&#x3D;6,k&#x3D;7. Since a5&gt;a7, replace a5 with a5+a6&#x3D;9, the array then becomes [1,2,6,7,9,5,3].<br>Choose i&#x3D;2,j&#x3D;5,k&#x3D;7. Since a2≤a7, swap a5 and a7, the array then becomes [1,2,6,7,3,5,9].<br>Choose i&#x3D;2,j&#x3D;4,k&#x3D;6. Since a2≤a6, swap a4 and a6, the array then becomes [1,2,6,5,3,7,9].<br>Choose i&#x3D;1,j&#x3D;3,k&#x3D;5. Since a1≤a5, swap a3 and a5, the array then becomes [1,2,3,5,6,7,9], which is sorted in non-descending order.<br>In the third, the fourth, the fifth and the sixth test cases, it can be shown that the array cannot be sorted in non-descending order.<br>由题意易知，当数组第一个数为1即可满足，无需理会后续操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span> a[N];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (a[<span class="number">0</span>]==<span class="number">1</span>) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t; </span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//code by 01100_10111;</span></span><br><span class="line"><span class="comment">//code by yxisme;</span></span><br></pre></td></tr></table></figure>
       </section>
 
       
       
         <nav class="article-nav">
+          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
@@ -162,11 +166,10 @@
           <h2 class="card-text--title text-ellipsis">test</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
