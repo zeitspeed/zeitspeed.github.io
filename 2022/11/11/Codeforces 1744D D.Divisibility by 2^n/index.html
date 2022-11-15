@@ -148,8 +148,45 @@
 <p>In the second test case, the product of elements initially equals 6. We can apply the operation for i&#x3D;2, and then a2 becomes 2⋅2&#x3D;4, and the product of numbers becomes 3⋅4&#x3D;12, and this product of numbers is divided by 2n&#x3D;22&#x3D;4.</p>
 <p>In the fourth test case, even if we apply all possible operations, we still cannot make the product of numbers divisible by 2n  — it will be (13⋅1)⋅(17⋅2)⋅(1⋅3)⋅(1⋅4)&#x3D;5304, which does not divide by 2n&#x3D;24&#x3D;16.</p>
 <p>In the fifth test case, we can apply operations for i&#x3D;2 and i&#x3D;4.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="type">int</span> n, x;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt;<span class="built_in">v</span>(n);</span><br><span class="line">		<span class="type">int</span> cnt = <span class="number">0</span>, cnt1;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			cin &gt;&gt; x;</span><br><span class="line">			cnt1 = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span> (x % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				x /= <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">int</span> j = i;</span><br><span class="line">			<span class="keyword">while</span> (j % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				cnt1++;</span><br><span class="line">				j /= <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (cnt1 != <span class="number">0</span>)v.<span class="built_in">push_back</span>(cnt1);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">		<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = v.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; cnt &lt; n; i--) &#123;</span><br><span class="line">			cnt += v[i];</span><br><span class="line">			ans++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (cnt &lt; n)cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//code by yxisme</span></span><br><span class="line"><span class="comment">//code by 01100_10111</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 2e5;
+int main(void) &#123;
+	int t;
+	cin &gt;&gt; t;
+	int n, x;
+	while (t--) &#123;
+		cin &gt;&gt; n;
+		vector&lt;int&gt;v(n);
+		int cnt &#x3D; 0, cnt1;
+		for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+			cin &gt;&gt; x;
+			cnt1 &#x3D; 0;
+			while (x % 2 &#x3D;&#x3D; 0) &#123;
+				cnt++;
+				x &#x2F;&#x3D; 2;
+			&#125;
+			int j &#x3D; i;
+			while (j % 2 &#x3D;&#x3D; 0) &#123;
+				cnt1++;
+				j &#x2F;&#x3D; 2;
+			&#125;
+			if (cnt1 !&#x3D; 0)v.push_back(cnt1);
+		&#125;
+		sort(v.begin(), v.end());
+		int ans &#x3D; 0;
+		for (int i &#x3D; v.size() - 1; i &gt;&#x3D; 0 &amp;&amp; cnt &lt; n; i--) &#123;
+			cnt +&#x3D; v[i];
+			ans++;
+		&#125;
+		if (cnt &lt; n)cout &lt;&lt; -1 &lt;&lt; endl;
+		else cout &lt;&lt; ans &lt;&lt; endl;
+	&#125;
+&#125;
+&#x2F;&#x2F;code by yxisme;
+&#x2F;&#x2F;code by zeitspeed;
+&#x2F;&#x2F;welcome to yxisme.com;</code></pre>
 
       </section>
 
@@ -220,7 +257,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>8</span>
+        <span>11</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">

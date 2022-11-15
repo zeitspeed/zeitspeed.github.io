@@ -146,7 +146,35 @@
 <p>In the second test case, we can choose i&#x3D;1,j&#x3D;2,k&#x3D;3. Since a1≤a3, swap a2 and a3, the array then becomes [1,2,3], which is sorted in non-descending order.</p>
 <p>In the seventh test case, we can do the following operations successively:</p>
 <p>Choose i&#x3D;5,j&#x3D;6,k&#x3D;7. Since a5≤a7, swap a6 and a7, the array then becomes [1,2,6,7,4,5,3].<br>Choose i&#x3D;5,j&#x3D;6,k&#x3D;7. Since a5&gt;a7, replace a5 with a5+a6&#x3D;9, the array then becomes [1,2,6,7,9,5,3].<br>Choose i&#x3D;2,j&#x3D;5,k&#x3D;7. Since a2≤a7, swap a5 and a7, the array then becomes [1,2,6,7,3,5,9].<br>Choose i&#x3D;2,j&#x3D;4,k&#x3D;6. Since a2≤a6, swap a4 and a6, the array then becomes [1,2,6,5,3,7,9].<br>Choose i&#x3D;1,j&#x3D;3,k&#x3D;5. Since a1≤a5, swap a3 and a5, the array then becomes [1,2,3,5,6,7,9], which is sorted in non-descending order.<br>In the third, the fourth, the fifth and the sixth test cases, it can be shown that the array cannot be sorted in non-descending order.<br>由题意易知，当数组第一个数为1即可满足，无需理会后续操作</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span> a[N];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (a[<span class="number">0</span>]==<span class="number">1</span>) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t; </span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="built_in">solve</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//code by 01100_10111;</span></span><br><span class="line"><span class="comment">//code by yxisme;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 12;
+void solve() &#123;
+	int n;
+	cin &gt;&gt; n;
+	int a[N];
+	for (int i &#x3D; 0; i &lt; n; i++) &#123;
+		cin &gt;&gt; a[i];
+	&#125;
+	if (a[0]&#x3D;&#x3D;1) &#123;
+		cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
+	&#125;
+	else &#123;
+		cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+	&#125;
+&#125;
+int main(void) &#123;
+	int t; 
+	cin &gt;&gt; t;
+	while (t--) &#123;
+		solve();
+	&#125;
+&#125;
+&#x2F;&#x2F;code by yxisme;
+&#x2F;&#x2F;code by zeitspeed;
+&#x2F;&#x2F;welcome to yxisme.com;</code></pre>
+
       </section>
 
       
@@ -216,7 +244,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>8</span>
+        <span>11</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">

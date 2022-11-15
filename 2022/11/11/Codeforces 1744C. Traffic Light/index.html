@@ -151,14 +151,50 @@
 <p>In the second test case the green color is on so you can cross the road immediately.</p>
 <p>In the third test case, if the red color was on at the second second, then we would wait for the green color for one second, and if the red light was on at the first second, then we would wait for the green light for two seconds.</p>
 <p>In the fourth test case the longest we would wait for the green color is if we wait for it starting from the fifth second.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="type">char</span> c;</span><br><span class="line">		string s;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; c &gt;&gt; s;</span><br><span class="line">		s += s;</span><br><span class="line">		<span class="type">int</span> cnt = <span class="number">0</span>, maxv = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == c) flag = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == <span class="string">&#x27;g&#x27;</span>)flag = <span class="number">0</span>, maxv = <span class="built_in">max</span>(maxv, cnt), cnt = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span> (flag==<span class="number">1</span>)cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; maxv &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int main(void) &#123;
+	int t;
+	cin &gt;&gt; t;
+	while (t--) &#123;
+		int n;
+		char c;
+		string s;
+		cin &gt;&gt; n &gt;&gt; c &gt;&gt; s;
+		s +&#x3D; s;
+		int cnt &#x3D; 0, maxv &#x3D; 0, flag &#x3D; 0;
+		for (int i &#x3D; 0; i &lt; s.length(); i++) &#123;
+			if (s[i] &#x3D;&#x3D; c) flag &#x3D; 1;
+			if (s[i] &#x3D;&#x3D; &#39;g&#39;)flag &#x3D; 0, maxv &#x3D; max(maxv, cnt), cnt &#x3D; 0;
+			if (flag&#x3D;&#x3D;1)cnt++;
+		&#125;
+		cout &lt;&lt; maxv &lt;&lt; endl;
+	&#125;
+&#125;
+&#x2F;&#x2F;code by yxisme;
+&#x2F;&#x2F;code by zeitspeed;
+&#x2F;&#x2F;welcome to yxisme.com;</code></pre>
 
       </section>
 
       
       
         <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/15/Codeforces%201255B.%20Fridge%20Lockers/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1255B. Fridge Lockers</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
           
           
             <div class="article-nav-item layout-padding">
@@ -209,7 +245,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>8</span>
+        <span>11</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
