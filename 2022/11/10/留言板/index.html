@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+
+  <meta name="generator" content="Hexo 6.3.0">
+
+  
+
+  
+
+  
+    <meta name="author" content="yxisme">
+  
+
+  
+
+  
+
+  <title>实验室第二次讲课 | Y X I S M E</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon1.ico">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/pojoaque.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(/image/fm2.png)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          Y X I S M E
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于我</a></li>
+        
+          <li class="navbar-list-item"><a href="/liuyan">留言板</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">实验室第二次讲课</h1>
+          <h2 class="title-sub-wrap">
+            <strong>yxisme</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-11-10T03:50:48.189Z" itemprop="datePublished">2022-11-10</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="实验室第二次讲课"><a href="#实验室第二次讲课" class="headerlink" title="实验室第二次讲课"></a>实验室第二次讲课</h1><h1 id="47-时间转换"><a href="#47-时间转换" class="headerlink" title="#47. 时间转换"></a>#47. 时间转换</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>给定一个以秒为单位的时间t，要求用的格式来表示这个时间。<code>&lt;H&gt;</code>表示时间，<code>&lt;M&gt;</code>表示分钟，而表示秒，它们都是整数且没有前导的“0”。例如，若t&#x3D;0，则应输出是“”；若t&#x3D;3661，则输出“”。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入只有一行，是一个整数t（0&lt;&#x3D;t&lt;&#x3D;86399）。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出只有一行，是以“”的格式所表示的时间，不包括引号。</p>
+<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1"><a href="#输入数据-1" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">0</code></pre>
+
+<h2 id="输出数据-1"><a href="#输出数据-1" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">0:0:0</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+int main(void)&#123;
+    int t;
+    scanf(&quot;%d&quot;,&amp;t);
+    int hh,mm,tt;
+    tt&#x3D;t%60;
+    mm&#x3D;((t-tt)%3600)&#x2F;60;&#x2F;&#x2F;求余后单位为秒，需要转化为分
+    hh&#x3D;t&#x2F;3600;&#x2F;&#x2F;利用向下取整的特性直接求时
+    printf(&quot;%d:%d:%d&quot;,hh,mm,tt);
+&#125;</code></pre>
+
+<h1 id="18-ABC比大小"><a href="#18-ABC比大小" class="headerlink" title="#18. ABC比大小"></a>#18. ABC比大小</h1><h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>这道题很简单，输入三个数字，只需按照他们的大小排好序就行。</p>
+<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><ul>
+<li>第一行随机输入三个整数ABC（0&lt;&#x3D;A,B,C&lt;&#x3D;10000）</li>
+</ul>
+<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><ul>
+<li>将A,B,C按照从小到大的顺序输出即可每个数字直接用空格隔开。</li>
+</ul>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1-1"><a href="#输入数据-1-1" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">2 3 1</code></pre>
+
+<h2 id="输出数据-1-1"><a href="#输出数据-1-1" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">1 2 3</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;分支选择写法
+#include&lt;stdio.h&gt;
+int main() &#123;
+	int A, B, C;
+	scanf(&quot;%d %d %d&quot;,&amp;A,&amp;B,&amp;C);
+	if (A &lt; B) &#123;
+		if (B &lt; C) &#123;
+			printf(&quot;%d %d %d&quot;, A, B, C);
+		&#125; else &#123;
+			if (A &lt; C) &#123;
+				printf(&quot;%d %d %d&quot;, A, C, B);
+			&#125; else &#123;
+				printf(&quot;%d %d %d&quot;, C, A, B);
+			&#125;
+		&#125;
+	&#125; else &#123;
+		if (C &lt; B) &#123;
+			printf(&quot;%d %d %d&quot;, C, B, A);
+		&#125; else &#123;
+			if (A &lt; C) &#123;
+				printf(&quot;%d %d %d&quot;, B, A, C);
+			&#125; else &#123;
+				printf(&quot;%d %d %d&quot;, B, C, A);
+			&#125;
+		&#125;
+	&#125;
+	return 0;
+&#125;</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;排序写法
+#include&lt;stdio.h&gt;
+int main(void)&#123;
+    int a[4];
+    for(int i&#x3D;0;i&lt;3;i++)&#123;
+        scanf(&quot;%d&quot;,a[i]);
+    &#125;
+    for(int i&#x3D;0;i&lt;3;i++)&#123;&#x2F;&#x2F;冒泡排序
+      	for(int j&#x3D;0;j&lt;3-i-1;j++)&#123;
+        	if(a[j]&gt;a[j+1])&#123;
+           		int temp&#x3D;a[j];
+           		a[j]&#x3D;a[j+1];
+           		a[j+1]&#x3D;temp;
+   			 &#125;
+  		&#125;
+	&#125;&#x2F;&#x2F;(进阶：推荐学习sort排序)
+  
+ 	for(int i&#x3D;0;i&lt;3;i++)&#123;
+        if(i&lt;2)printf(&quot;%d &quot;,a[i]);
+        else printf(&quot;%d&quot;,a[i]);
+    &#125;
+&#125;</code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++"></code></pre>
+
+<h1 id="24-求平均分"><a href="#24-求平均分" class="headerlink" title="#24. 求平均分"></a>#24. 求平均分</h1><h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><p>求平均分和最高分最低分，一直是老师的一份简单而又头疼的工作，数量多，容易算错，现在我们编写一个程序来帮助老师求平均分、最高分和最低分吧。</p>
+<h2 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入N个学生(1&lt;&#x3D;N &lt;&#x3D;10000),以下N行输入N个学生的成绩，成绩含有整数和小数。</p>
+<h2 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h2><p>第一行输出最低分和最高分，最低分最高分之间用一个空格隔开，若成绩为小数则向上取整，例如89.4输出90，</p>
+<p>第二行输出平均分。</p>
+<p>注意，平均成绩保留两位小数哦。</p>
+<h2 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1-2"><a href="#输入数据-1-2" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">5
+90
+85
+73
+88
+71</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="输出数据-1-2"><a href="#输出数据-1-2" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">71 90
+81.40</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>测试点1：</p>
+<pre class="line-numbers language-none"><code class="language-none">5
+90
+85
+73
+88
+71</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<p>测试点2：</p>
+<pre class="line-numbers language-none"><code class="language-none">1
+99</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<p>测试点3：</p>
+<pre class="line-numbers language-none"><code class="language-none">100
+7 49 73 58 30 72 44 78 23 9 40 65 92 42 87 3 27 29 40.5 12 3
+69 9 57 60 33 99 78 16 35 97 26 12 67 10 33 79 49 79 21 67 72 
+93 36 85 45 28 91 94 57 1 53.5 8 44 68.5 90.5 24 96 30 3 22 
+66.5 49 24 1 53 77 8 28 33 98 81 35.5 13 65 14 63 36 25 69 15 
+94 29 1 17 95 5 4 51 98 88.5 23 5 82 52 66 16 37 38 44 
+测试点3答案为
+1 99
+46.21</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main() &#123;
+	int n,i;
+	float score,max,min,sum,average;
+	scanf(&quot;%d&quot;,&amp;n);
+	for (i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+		scanf(&quot;%f&quot;,&amp;score);
+		if(i&#x3D;&#x3D;1)&#123;&#x2F;&#x2F;当i&#x3D;1时，为变量赋初值
+			max&#x3D;score;
+			min&#x3D;score;
+			sum&#x3D;score;
+		&#125;else&#123;
+			sum+&#x3D;score;
+			if (score&gt;max)&#123;
+				max&#x3D;score;
+			&#125;else if(score&lt;min)&#123;
+				min&#x3D;score;
+			&#125;
+		&#125;
+	&#125;
+	average&#x3D;sum&#x2F;n;
+	printf(&quot;%.0f %.0f\n%.2f&quot;,ceil(min),ceil(max),average);
+    &#x2F;&#x2F;ceil():向上取整函数,相对的floor():向下取整函数
+	return 0; 
+&#125;</code></pre>
+
+<h1 id="26-能被7和11整除的数字"><a href="#26-能被7和11整除的数字" class="headerlink" title="#26. 能被7和11整除的数字"></a>#26. 能被7和11整除的数字</h1><h2 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h2><p>有一种神奇的数字，我们暂且叫它“7数”吧，它能被7或者11整除或者同时被它俩整除，让我们找出这些数字。</p>
+<h2 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一个数字N(1&lt;&#x3D;N&lt;&#x3D;10000)，找出不比它大的所有“7数”。若没有这个数，则输出-1。</p>
+<h2 id="输出格式-3"><a href="#输出格式-3" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出所有“7数”，每个“7数”之间用空格隔开，末尾不能有多余的空格。</p>
+<h2 id="样例-3"><a href="#样例-3" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1-3"><a href="#输入数据-1-3" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">60</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="输出数据-1-3"><a href="#输出数据-1-3" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">7 11 14 21 22 28 33 35 42 44 49 55 56</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+int main ()&#123;
+    int i;
+    int a;
+    scanf(&quot;%d&quot;,&amp;a);
+    if (a&lt;7)&#123;
+        printf(&quot;%d&quot;,-1);
+    &#125;else&#123;
+        for (i &#x3D; 1; i &lt;&#x3D; a; ++i)&#123;
+            if (i%7 &#x3D;&#x3D; 0 || i%11 &#x3D;&#x3D; 0)&#123;
+                printf(&quot;%d &quot;,i);
+            &#125;
+        &#125;
+    &#125;
+    return 0 ;
+&#125;</code></pre>
+
+<h1 id="29-数字的判断"><a href="#29-数字的判断" class="headerlink" title="#29. 数字的判断"></a>#29. 数字的判断</h1><h2 id="说明-4"><a href="#说明-4" class="headerlink" title="说明"></a>说明</h2><p>给出一个不多于5位数的整数，要求</p>
+<ul>
+<li>求出它是几位数</li>
+<li>分别输出每一位数字</li>
+<li>按逆序输出各位数字，例如原数为321,应输出123</li>
+</ul>
+<h2 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式"></a>输入格式</h2><p>一个不大于5位的数字N(1&lt;&#x3D;N&lt;&#x3D;99999)</p>
+<h2 id="输出格式-4"><a href="#输出格式-4" class="headerlink" title="输出格式"></a>输出格式</h2><p><strong>输出一共分三行</strong></p>
+<ul>
+<li>第一行 位数</li>
+<li>第二行 用空格分开的每个数字，注意最后一个数字后没有空格</li>
+<li>第三行 按逆序输出这个数</li>
+</ul>
+<h2 id="样例-4"><a href="#样例-4" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1-4"><a href="#输入数据-1-4" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">12345</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="输出数据-1-4"><a href="#输出数据-1-4" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">5
+1 2 3 4 5
+54321</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;字符串解法
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() &#123;
+    char a[10]&#x3D;&quot;\0&quot;;
+    gets(a);
+    printf(&quot;%d\n&quot;, strlen(a));
+    for (int i &#x3D; 0; i &lt; strlen(a)-1; i++) &#123;
+        printf(&quot;%c &quot;, a[i]);
+    &#125;
+    printf(&quot;%c\n&quot;,a[strlen(a)-1]);
+    for (int i &#x3D; strlen(a) - 1; i &gt;&#x3D; 0; i--) &#123;
+        printf(&quot;%c&quot;, a[i]);
+    &#125;
+&#125;
+</code></pre>
+
+<h2 id="根据以上算法思想，大家思考一下以下题目"><a href="#根据以上算法思想，大家思考一下以下题目" class="headerlink" title="根据以上算法思想，大家思考一下以下题目"></a>根据以上算法思想，大家思考一下以下题目</h2><h4 id="4-digit-函数"><a href="#4-digit-函数" class="headerlink" title="4. digit 函数"></a>4. digit 函数</h4><h1 id="28-超级三角形"><a href="#28-超级三角形" class="headerlink" title="#28. 超级三角形"></a>#28. 超级三角形</h1><h2 id="说明-5"><a href="#说明-5" class="headerlink" title="说明"></a>说明</h2><p>超级三角形，让我按照自己喜欢的样式来打印漂亮的三角形吧，这个三角形是等腰三角形，而且团可以定制哦。</p>
+<h2 id="输入格式-5"><a href="#输入格式-5" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一个 n(1&lt;&#x3D;n&lt;&#x3D;15) 和一个 图案c 。</p>
+<h2 id="输出格式-5"><a href="#输出格式-5" class="headerlink" title="输出格式"></a>输出格式</h2><p>第一行1个图案c</p>
+<p>第二行3个图案c</p>
+<p>按照规则输出三角形！</p>
+<h2 id="样例-5"><a href="#样例-5" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1-5"><a href="#输入数据-1-5" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">5 a</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="输出数据-1-5"><a href="#输出数据-1-5" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">    a
+   aaa
+  aaaaa
+ aaaaaaa
+aaaaaaaaa</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+int main()&#123;
+    int i, n, j &#x3D; 1, a &#x3D; 1, c;
+    char t;
+    scanf(&quot;%d %c&quot;, &amp;n,&amp;t);
+    c &#x3D; n;
+    for (i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;&#x2F;&#x2F;行控制
+        while (a &lt;&#x3D; c - 1) &#123;&#x2F;&#x2F;注意观察空格规律，不要多打
+            printf(&quot; &quot;);
+            a++;
+        &#125;
+        c--;
+        j &#x3D; 1;
+        while (j &lt;&#x3D; (2 * i) - 1) &#123;
+            printf(&quot;%c&quot;,t);
+            j++;
+        &#125;
+        a &#x3D; 1;
+        printf(&quot;\n&quot;);
+    &#125;
+    return 0;
+&#125;</code></pre>
+
+<h1 id="34-能生的小兔子"><a href="#34-能生的小兔子" class="headerlink" title="#34. 能生的小兔子"></a>#34. 能生的小兔子</h1><h2 id="说明-6"><a href="#说明-6" class="headerlink" title="说明"></a>说明</h2><p>十九世纪七十年代，有人从外地带来了一对兔子到澳大利亚。兔子瞬间患难成灾。这些小兔子每3个月就会生一对小兔子，往后的每个月都会生一对小兔子。在理想的情况下（兔子不死）。我们来算算在第N个月后澳大利亚会有多少对兔子。</p>
+<h2 id="输入格式-6"><a href="#输入格式-6" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入月份N(1&lt;&#x3D;N&lt;&#x3D;50)</p>
+<h2 id="输出格式-6"><a href="#输出格式-6" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出每个月兔子的对数，中间用空格隔开。不用考虑末尾的空格。</p>
+<h2 id="样例-6"><a href="#样例-6" class="headerlink" title="样例"></a>样例</h2><h2 id="输入数据-1-6"><a href="#输入数据-1-6" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">8</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="输出数据-1-6"><a href="#输出数据-1-6" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">1 1 2 3 5 8 13 21</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;知识点：斐波那契数列
+#include &lt;stdio.h&gt;
+int main()&#123;
+    int n;
+    long long a[50]&#x3D;&#123;1&#125;;&#x2F;&#x2F;需要使用long long,在47后会超过int范围；
+    scanf(&quot;%d&quot;,&amp;n);
+    a[0]&#x3D;1,a[1]&#x3D;1;
+    for(int i&#x3D;2;i&lt;n;i++)&#123;
+    	 a[i]&#x3D;a[i-1]+a[i-2];
+    &#125;
+    for(int i&#x3D;0;i&lt;n;i++)&#123;
+        printf(&quot;%lld &quot; , a[i]);
+    &#125;
+    return 0;
+&#125;</code></pre>
+
+<h1 id="46-找众数"><a href="#46-找众数" class="headerlink" title="#46. 找众数"></a>#46. 找众数</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>由于菜菜子比较菜，所以出了一道很菜很菜的题目。</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>菜菜子拥有一个由正整数组成的序列，需要你从中找出众数（众数是在一组数据中,出现次数最多的数据）</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行给定一个正整数n<em>n</em>, 满足 3\leq n\leq 10003≤<em>n</em>≤1000 . 第二行输入由n<em>n</em>个正整数组成的序列。序列里的数x<em>x</em>满足0\leq x\leq 1000000≤<em>x</em>≤100000</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>输出序列中的众数x_{mode}<em>x<strong>m</strong>o<strong>d</strong>e</em>和该数出现的次数count\left(x_{mode}\right)<em>co<strong>u</strong>n**t</em>(<em>x<strong>m</strong>o<strong>d</strong>e</em>)，如果由多个相同数量的众数则输出最大的众数（显然必定唯一）。</p>
+<h2 id="输入数据-1-7"><a href="#输入数据-1-7" class="headerlink" title="输入数据 1"></a>输入数据 1</h2><pre class="line-numbers language-input1" data-language="input1"><code class="language-input1">7
+1 4 3 3 2 2 3</code></pre>
+
+<p><a href="javascript:;">Copy</a></p>
+<h2 id="输出数据-1-7"><a href="#输出数据-1-7" class="headerlink" title="输出数据 1"></a>输出数据 1</h2><pre class="line-numbers language-output1" data-language="output1"><code class="language-output1">3 3</code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;c语言桶排序写法
+&#x2F;&#x2F;！！注意：桶排序只能用于数值范围小且集中的情况；
+#include &lt;stdio.h&gt;
+int a[100005]&#x3D;&#123;0&#125;;
+int main()&#123;
+	int pos&#x3D;0;
+	int n;
+	scanf(&quot;%d&quot;,&amp;n);
+	while(n--)&#123;
+		int aa;
+		scanf(&quot;%d&quot;,&amp;aa);
+		a[aa]++;
+	&#125;
+	for(int i&#x3D;1;i&lt;&#x3D;100000;++i)&#123;
+		if(a[pos]&lt;&#x3D;a[i])pos&#x3D;i;
+	&#125;
+	printf(&quot;%d %d&quot;,pos,a[pos]);
+&#125;</code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;c++写法
+#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int main(void)&#123;
+    map&lt;int,int&gt;a;&#x2F;&#x2F;
+    int n;
+    cin&gt;&gt;n;
+    int m;
+    for(int i&#x3D;0;i&lt;n;i++)&#123;
+        cin&gt;&gt;m;
+        a[m]++;
+    &#125;
+    int maxv&#x3D;-1;
+    int p&#x3D;0;
+    map&lt;int, int&gt;::iterator iter;
+    iter&#x3D;a.begin();
+    while(iter!&#x3D;a.end())&#123;
+        maxv&#x3D;max(iter-&gt;second,maxv);
+        if(maxv&#x3D;&#x3D;iter-&gt;second)p&#x3D;iter-&gt;first;
+        iter++;
+    &#125;
+    cout&lt;&lt;p&lt;&lt;&#39; &#39;&lt;&lt;maxv;
+&#125;</code></pre>
+
+<h2 id="根据以上算法思想，大家思考一下以下题目-1"><a href="#根据以上算法思想，大家思考一下以下题目-1" class="headerlink" title="根据以上算法思想，大家思考一下以下题目"></a>根据以上算法思想，大家思考一下以下题目</h2><h4 id="40-集合"><a href="#40-集合" class="headerlink" title="#40. 集合"></a>#40. 集合</h4>
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2022/11/11/Codeforces%201750A.%20Indirect%20Sort/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Codeforces 1750A. Indirect Sort</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+  
+  <div>
+    <section id="comments" class="comments">
+      <style>
+        .utterances{max-width: 100%;}
+      </style>
+        <script src= "https://utteranc.es/client.js"
+        repo= "zeitspeed/commit_yxisme"
+        issue-term= "title"
+        theme= "github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+</div>
+
+
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="/image/zb.jpg" class="soft-size--round soft-style--box" alt="yxisme">
+    
+    
+      <h2>yxisme</h2>
+    
+    
+      <p>“01100_10111”</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>11</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>欢迎来访</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    
+    <div class="social-icons">
+      
+        
+      
+        
+          <a href="https://blog.csdn.net/qq_60775360?type=blog" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg t="1587373160860" class="icon icon-zhihu" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M544.949 561.422s0-71.387-34.779-75.050c-34.779-3.663-142.775 0-142.775 0v-219.654h161.078s-1.83-73.219-32.949-73.219h-261.755l43.93-117.148s-65.897 3.663-89.692 45.761-98.844 252.604-98.844 252.604 25.627 10.983 67.726-20.134c42.101-31.116 56.743-86.033 56.743-86.033l76.879-3.663 1.83 223.316s-133.621-1.83-161.078 0c-27.457 1.83-42.101 75.050-42.101 75.050h203.182s-18.307 124.47-69.557 214.164c-53.085 89.692-151.929 161.078-151.929 161.078s71.387 29.287 140.947-10.983c69.557-42.101 120.811-223.316 120.811-223.316l162.912 203.182s14.643-97.013-1.83-124.47c-18.307-27.457-113.49-137.283-113.49-137.283l-42.101 36.607 29.287-120.811h177.552zM587.050 188.010l-1.83 660.793h65.897l23.795 82.37 115.321-82.37h162.912v-660.793h-366.091zM879.92 775.584h-76.879l-97.013 75.050-21.965-75.050h-20.134v-512.527h215.991v512.527z"></path>
+</svg>
+          </a>
+        
+      
+        
+      
+        
+          <a href="https://github.com/zeitspeed/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+      
+      
+    </div>
+     
+    <p>&copy; 2022 <a href="/" target="_blank">yxisme</a></p>
+    
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    
+    <!-- <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p> -->
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
