@@ -24,7 +24,7 @@
 
   
 
-  <title>Codeforces 1744A. Number Replacement | Y X I S M E</title>
+  <title>二叉树的创建及遍历 | Y X I S M E</title>
 
   
 
@@ -102,11 +102,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Codeforces 1744A. Number Replacement</h1>
+          <h1 class="title-wrap">二叉树的创建及遍历</h1>
           <h2 class="title-sub-wrap">
             <strong>yxisme</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-11-11T08:47:59.179Z" itemprop="datePublished">2022-11-11</time>
+            <time  class="article-date" datetime="2022-12-08T08:46:46.987Z" itemprop="datePublished">2022-12-08</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -136,51 +136,147 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>A. Number Replacement<br>time limit per test2 seconds<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>An integer array a1,a2,…,an is being transformed into an array of lowercase English letters using the following prodecure:</p>
-<p>While there is at least one number in the array:</p>
-<p>Choose any number x from the array a, and any letter of the English alphabet y.<br>Replace all occurrences of number x with the letter y.<br>For example, if we initially had an array a&#x3D;[2,3,2,4,1], then we could transform it the following way:</p>
-<p>Choose the number 2 and the letter c. After that a&#x3D;[c,3,c,4,1].<br>Choose the number 3 and the letter a. After that a&#x3D;[c,a,c,4,1].<br>Choose the number 4 and the letter t. After that a&#x3D;[c,a,c,t,1].<br>Choose the number 1 and the letter a. After that a&#x3D;[c,a,c,t,a].<br>After the transformation all letters are united into a string, in our example we get the string “cacta”.</p>
-<p>Having the array a and the string s determine if the string s could be got from the array a after the described transformation?</p>
-<p>Input<br>The first line contains a single integer t (1≤t≤103) — the number of test cases.</p>
-<p>Then the description of the test cases follows.</p>
-<p>The first line of each test case contains a single integer n (1≤n≤50) — the length of the array a and the string s.</p>
-<p>The second line of each test case contains exactly n integers: a1,a2,…,an (1≤ai≤50) — the elements of the array a.</p>
-<p>The third line of each test case contains a string s of length n, consisting of lowercase English letters.</p>
-<p>Output<br>For each test case, output “YES”, if we can get the string s from the array a, and “NO” otherwise. You can output each letter in any case.</p>
-<p>Example<br>inputCopy<br>7<br>5<br>2 3 2 4 1<br>cacta<br>1<br>50<br>a<br>2<br>11 22<br>ab<br>4<br>1 2 2 1<br>aaab<br>5<br>1 2 3 2 1<br>aaaaa<br>6<br>1 10 2 9 3 8<br>azzfdb<br>7<br>1 2 3 4 1 1 2<br>abababb<br>outputCopy<br>YES<br>YES<br>YES<br>NO<br>YES<br>YES<br>NO<br>Note<br>The first test case corresponds to the sample described in the statement.</p>
-<p>In the second test case we can choose the number 50 and the letter a.</p>
-<p>In the third test case we can choose the number 11 and the letter a, after that a&#x3D;[a,22]. Then we choose the number 22 and the letter b and get a&#x3D;[a,b].</p>
-<p>In the fifth test case we can change all numbers one by one to the letter a.</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
-#include&lt;bits&#x2F;stdc++.h&gt;
+        <p><strong>一、****实验目的</strong></p>
+<p>\1. 熟练掌握二叉树的三种遍历方法(先序遍历，中序遍历，后序遍历)，及二叉树的创建方法;</p>
+<p><strong>二、****实验内容</strong></p>
+<p>已知二叉树，如图所示,编程实现以先序次序创建二叉树，并分别用三种方法(先序遍历，中序遍历，后序遍历)遍历该二叉树:</p>
+<p>(1) 先序次序输入二叉树序列创建二叉树；</p>
+<p>(2) 先序遍历二叉树（递归）；</p>
+<p>(3) 中序遍历二叉树（递归与非递归）；</p>
+<p>(4)后序遍历二叉树（递归）。</p>
+<p><strong>2.</strong> 测试用例:</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>输入</th>
+<th>输出</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ABC@@DE@G@@F@@@</td>
+<td>先序遍历：ABCDEGF中序遍历（递归）：CBEGDFA中序遍历（非递归）：CBEGDFA后序遍历：CGEFDBA</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ABD@@EG@@@C@F@@</td>
+<td>先序遍历：ABDEGCF中序遍历（递归）：DBGEACF中序遍历（非递归）：DBGEACF后序遍历：DGEBFCA</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>@</td>
+<td>空树</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
 using namespace std;
-int main(void) &#123;
-	int t,n;
-	string s;
-	int a[55];
-	cin &gt;&gt; t;
-	while (t--) &#123;
-		int b[55] &#x3D; &#123; 0 &#125;;
-		int flag &#x3D; 1;
-		cin &gt;&gt; n;
-		for (int i &#x3D; 0; i &lt; n; i++) &#123;
-			cin &gt;&gt; a[i];
-		&#125;
-		cin &gt;&gt; s;
-		for (int i &#x3D; 0; i &lt; n; i++) &#123;
-			if (b[a[i]] !&#x3D; 0 &amp;&amp; b[a[i]] !&#x3D; s[i]) &#123;
-				flag &#x3D; 0;
-				break;
-			&#125;
-			b[a[i]] &#x3D; s[i];
-		&#125;
-		if (flag) &#123; cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl; &#125;
-		else &#123;cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl; &#125;
-	&#125;
-&#125;
+#define MAXSIZE 100
 &#x2F;&#x2F;code by yxisme;
-&#x2F;&#x2F;code by zeitspeed;
-&#x2F;&#x2F;welcome to yxisme.com;</code></pre>
+typedef struct TNode * BinTree;   &#x2F;* 二叉树类型 *&#x2F;
+typedef char ElementType;
+struct TNode&#123;    &#x2F;* 树结点定义 *&#x2F; 
+    ElementType Data;  &#x2F;* 结点数据 *&#x2F;
+    BinTree Left;   &#x2F;* 指向左子树 *&#x2F; 
+    BinTree Right;   &#x2F;* 指向右子树 *&#x2F; 
+&#125;; 
+&#x2F;*定义堆栈*&#x2F;
+typedef struct SNode *PtrToSNode;
+struct SNode&#123;
+    int top;
+    BinTree Data[MAXSIZE]; 
+&#125;;
+typedef PtrToSNode Stack;
+
+&#x2F;*初始化堆栈*&#x2F;
+Stack CreateStack()
+&#123;
+    Stack S &#x3D; (Stack)malloc(sizeof(struct SNode));
+    S-&gt;top &#x3D; -1;
+    return S;
+&#125;
+void PreorderTraversal(BinTree BT)&#123;
+    if(BT&#x3D;&#x3D;NULL)return;
+    printf(&quot;%c&quot;,BT-&gt;Data);
+    PreorderTraversal(BT-&gt;Left);
+    PreorderTraversal(BT-&gt;Right);
+&#125;
+void InorderTraversal(BinTree BT)&#123;
+    if(BT&#x3D;&#x3D;NULL)return;
+    InorderTraversal(BT-&gt;Left);
+    printf(&quot;%c&quot;,BT-&gt;Data);
+    InorderTraversal(BT-&gt;Right);
+&#125;
+void PostorderTraversal(BinTree BT)&#123;
+    if(BT&#x3D;&#x3D;NULL)return;
+    PostorderTraversal(BT-&gt;Left);
+    PostorderTraversal(BT-&gt;Right);
+    printf(&quot;%c&quot;,BT-&gt;Data);
+&#125;
+void print_x(BinTree BT)&#123;&#x2F;&#x2F;中序遍历非递归
+    BinTree t&#x3D;BT,p;
+    Stack s&#x3D;CreateStack();
+    int flag&#x3D;0;
+    while(t!&#x3D;NULL||s-&gt;top!&#x3D;-1)&#123;
+        while(t!&#x3D;NULL)&#123;
+            s-&gt;Data[++s-&gt;top]&#x3D;t;
+            t&#x3D;t-&gt;Left;
+        &#125;
+        if(s-&gt;top!&#x3D;-1)&#123;
+            p&#x3D;s-&gt;Data[s-&gt;top];
+            s-&gt;top--;
+            printf(&quot;%c&quot;,p-&gt;Data);
+            t&#x3D;p-&gt;Right;
+        &#125;
+    &#125;
+&#125;
+BinTree CreatBinTree()
+&#123;
+    ElementType ch;
+    BinTree T;
+    scanf(&quot;%c&quot;,&amp;ch); &#x2F;*按先序次序输入树的结点，空树输入@*&#x2F;
+    if(ch &#x3D;&#x3D; &#39;@&#39;)
+       T &#x3D; NULL;
+    else &#123;
+        T &#x3D; (BinTree)malloc(sizeof(struct TNode));
+        T-&gt;Data &#x3D; ch;
+        T-&gt;Left &#x3D; CreatBinTree();
+        T-&gt;Right &#x3D; CreatBinTree();
+    &#125;
+return T;
+&#125;
+
+int main()
+&#123;
+    BinTree BT;
+    BT &#x3D; CreatBinTree();
+
+    if(BT &#x3D;&#x3D; NULL)&#123;
+        printf(&quot;空树&quot;); 
+    &#125;else&#123;
+        printf(&quot;先序遍历：&quot;); 
+        PreorderTraversal(BT);
+        printf(&quot;\n&quot;); 
+
+        printf(&quot;中序遍历（递归）：&quot;); 
+        InorderTraversal(BT);
+        printf(&quot;\n&quot;); 
+
+        printf(&quot;中序遍历（非递归）：&quot;); 
+        print_x(BT);
+        printf(&quot;\n&quot;); 
+
+        printf(&quot;后序遍历：&quot;); 
+        PostorderTraversal(BT);
+    &#125; 
+    return 0;
+&#125;
+</code></pre>
+
 
       </section>
 
@@ -193,8 +289,8 @@ int main(void) &#123;
     
     <div class="card-text">
       
-        <a href="/2022/11/11/Codeforces%201744B.%20Even-Odd%20Increments/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Codeforces 1744B. Even-Odd Increments</h2>
+        <a href="/2022/12/08/two/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">二叉树的创建</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -208,8 +304,8 @@ int main(void) &#123;
     
     <div class="card-text">
       
-        <a href="/2022/11/11/Codeforces%201750B.%20Maximum%20Substring/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Codeforces 1750B. Maximum Substring</h2>
+        <a href="/2022/11/16/%E5%90%90%E6%A7%BD/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">好想去珠海航展啊</h2>
         </a>
       
       <div class="card-text--row">Older</div>
