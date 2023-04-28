@@ -24,7 +24,7 @@
 
   
 
-  <title>Codeforces 1744B. Even-Odd Increments | Y X I S M E</title>
+  <title>图的度(出度)统计和最小生成树 | Y X I S M E</title>
 
   
 
@@ -102,11 +102,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Codeforces 1744B. Even-Odd Increments</h1>
+          <h1 class="title-wrap">图的度(出度)统计和最小生成树</h1>
           <h2 class="title-sub-wrap">
             <strong>yxisme</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-11-11T08:48:12.016Z" itemprop="datePublished">2022-11-11</time>
+            <time  class="article-date" datetime="2023-04-28T13:28:09.056Z" itemprop="datePublished">2023-04-28</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -136,54 +136,7 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>time limit per test2 seconds<br>memory limit per test256 megabytes<br>inputstandard input<br>outputstandard output<br>You are given n of integers a1,a2,…,an. Process q queries of two types:</p>
-<p>query of the form “0 xj”: add the value xj to all even elements of the array a,<br>query of the form “1 xj”: add the value xj to all odd elements of the array a.<br>Note that when processing the query, we look specifically at the odd&#x2F;even value of ai, not its index.</p>
-<p>After processing each query, print the sum of the elements of the array a.</p>
-<p>Please note that the answer for some test cases won’t fit into 32-bit integer type, so you should use at least 64-bit integer type in your programming language (like long long for C++).</p>
-<p>Input<br>The first line of the input contains an integer t (1≤t≤104) — the number of test cases.</p>
-<p>The descriptions of the test cases follow.</p>
-<p>The first line of each test case contains two integers n and q (1≤n, q≤105) — the length of array a and the number of queries.</p>
-<p>The second line of each test case contains exactly n integers: a1,a2,…,an (1≤ai≤109) — elements of the array a.</p>
-<p>The following q lines contain queries as two integers typej and xj (0≤typej≤1, 1≤xj≤104).</p>
-<p>It is guaranteed that the sum of values n over all test cases in a test does not exceed 105. Similarly, the sum of values q over all test cases does not exceed 105.</p>
-<p>Output<br>For each test case, print q numbers: the sum of the elements of the array a after processing a query.</p>
-<p>Example<br>inputCopy<br>4<br>1 1<br>1<br>1 1<br>3 3<br>1 2 4<br>0 2<br>1 3<br>0 5<br>6 7<br>1 3 2 4 10 48<br>1 6<br>0 5<br>0 4<br>0 5<br>1 3<br>0 12<br>0 1<br>6 7<br>1000000000 1000000000 1000000000 11 15 17<br>0 17<br>1 10000<br>1 51<br>0 92<br>0 53<br>1 16<br>0 1<br>outputCopy<br>2<br>11<br>14<br>29<br>80<br>100<br>100<br>100<br>118<br>190<br>196<br>3000000094<br>3000060094<br>3000060400<br>3000060952<br>3000061270<br>3000061366<br>3000061366<br>Note<br>In the first test case, the array a&#x3D;[2] after the first query.</p>
-<p>In the third test case, the array a is modified as follows: [1,3,2,4,10,48] → [7,9,2,4,10,48] → [7,9,7,9,15,53] → [7,9,7,9,15,53] → [10,12,10,12,18,56] → [22,24,22,24,30,68] → [23,25,23,25,31,69].</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">
-#include&lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-int main(void) &#123;
-	int t;
-	cin &gt;&gt; t;
-	while (t--) &#123;
-		long long n, q,sum&#x3D;0;
-		cin &gt;&gt; n &gt;&gt; q;
-		int odd &#x3D; 0, even &#x3D; 0, x;
-		for (int i &#x3D; 0; i &lt; n; i++) &#123;
-			cin &gt;&gt; x;
-			if (x % 2 &#x3D;&#x3D; 0)odd++;
-			else even++;
-			sum +&#x3D; x;
-		&#125;
-		long long ty, p;
-		while (q--) &#123;
-			cin &gt;&gt; ty &gt;&gt; p;
-			if (ty &#x3D;&#x3D; 0) &#123; 
-				sum +&#x3D; p * odd;
-				if (p % 2 &#x3D;&#x3D; 1) even +&#x3D; odd, odd &#x3D; 0;
-			&#125;
-			else &#123; 
-				sum +&#x3D; p * even;
-				if (p % 2 &#x3D;&#x3D; 1)odd +&#x3D; even, even &#x3D; 0;
-			&#125;
-			cout &lt;&lt; sum &lt;&lt; endl;
-		&#125;
-	&#125;
-&#125;
-&#x2F;&#x2F;code by yxisme;
-&#x2F;&#x2F;code by zeitspeed;
-&#x2F;&#x2F;welcome to yxisme.com;
- </code></pre>
+        <p><strong>一、****实验目的</strong></p>
 
       </section>
 
@@ -191,28 +144,14 @@ int main(void) &#123;
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2022/11/11/Codeforces%201744D%20D.Divisibility%20by%202%5En/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Codeforces 1744D. Divisibility by 2^n</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2022/11/11/CodeForces1744A.%20Number%20Replacement/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Codeforces 1744A. Number Replacement</h2>
+        <a href="/2022/12/08/the/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">图的度(出度)统计和最小生成树</h2>
         </a>
       
       <div class="card-text--row">Older</div>
