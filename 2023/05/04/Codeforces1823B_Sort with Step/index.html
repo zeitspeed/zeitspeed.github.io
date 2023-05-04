@@ -16,21 +16,23 @@
   <meta name="author" content="yxisme">
   <meta name="keywords" content="">
   
-    <meta name="description" content="去年没去成，今年还是没去成，这傻鸟疫情😭 希望明年能去！🌏 博客的分类也该提上日程了，好多事要做。。">
+    <meta name="description" content="c 此题用a存储原数组，b数组存储改数字当前位置，判断当前数字位置是否与这个数字应该在的位置间的差对k求余是否等于零即可判断是否需要强转。由于题目说原数组是数列，所以方法是可行的。 我之前甚至想了逆序对的做法，还是天马行空了 上代码： 1234567891011121314151617181920212223242526272829#include&lt;bits&#x2F;stdc++.h&gt;usin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好想去珠海航展啊">
-<meta property="og:url" content="https://zeitspeed.github.io/2022/11/16/%E5%90%90%E6%A7%BD/index.html">
+<meta property="og:title" content="Codeforces 1823B Sort with Step">
+<meta property="og:url" content="https://zeitspeed.github.io/2023/05/04/Codeforces1823B_Sort%20with%20Step/index.html">
 <meta property="og:site_name" content="Y X I S M E">
-<meta property="og:description" content="去年没去成，今年还是没去成，这傻鸟疫情😭 希望明年能去！🌏 博客的分类也该提上日程了，好多事要做。。">
+<meta property="og:description" content="c 此题用a存储原数组，b数组存储改数字当前位置，判断当前数字位置是否与这个数字应该在的位置间的差对k求余是否等于零即可判断是否需要强转。由于题目说原数组是数列，所以方法是可行的。 我之前甚至想了逆序对的做法，还是天马行空了 上代码： 1234567891011121314151617181920212223242526272829#include&lt;bits&#x2F;stdc++.h&gt;usin">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-15T16:59:34.725Z">
-<meta property="article:modified_time" content="2022-11-17T07:11:13.706Z">
+<meta property="article:published_time" content="2023-05-04T09:29:11.462Z">
+<meta property="article:modified_time" content="2023-05-04T09:41:37.625Z">
 <meta property="article:author" content="yxisme">
+<meta property="article:tag" content="思维">
+<meta property="article:tag" content="codeforces:900">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>好想去珠海航展啊 - Y X I S M E</title>
+  <title>Codeforces 1823B Sort with Step - Y X I S M E</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +227,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="好想去珠海航展啊"></span>
+            <span id="subtitle" data-typed-text="Codeforces 1823B Sort with Step"></span>
           
         </div>
 
@@ -241,8 +243,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-16 00:59" pubdate>
-          2022年11月16日 凌晨
+        <time datetime="2023-05-04 17:29" pubdate>
+          2023年5月4日 下午
         </time>
       </span>
     
@@ -253,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          50 字
+          609 字
         
       </span>
     
@@ -264,7 +266,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -314,12 +316,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">好想去珠海航展啊</h1>
+            <h1 style="display: none">Codeforces 1823B Sort with Step</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：6 个月前
+                    本文最后更新于：几秒前
                   
                 
               </p>
@@ -327,9 +329,12 @@
             
               <div class="markdown-body">
                 
-                <p>去年没去成，今年还是没去成，这傻鸟疫情😭</p>
-<p>希望明年能去！🌏</p>
-<p>博客的分类也该提上日程了，好多事要做。。</p>
+                <p>c</p>
+<p>此题用a存储原数组，b数组存储改数字当前位置，判断当前数字位置是否与这个数字应该在的位置间的差对k求余是否等于零即可判断是否需要强转。由于题目说原数组是数列，所以方法是可行的。</p>
+<p>我之前甚至想了逆序对的做法，还是天马行空了</p>
+<p>上代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">2e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> a[N],b[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n,k;<br>    cin&gt;&gt;n&gt;&gt;k;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin&gt;&gt;a[i];<br>        b[a[i]]=i;<br>    &#125;<br>    <span class="hljs-type">int</span> cnt=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-type">int</span> c=<span class="hljs-built_in">abs</span>(b[i]-i);<br>        <span class="hljs-keyword">if</span>(c%k!=<span class="hljs-number">0</span>)cnt++;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(cnt==<span class="hljs-number">0</span>)cout&lt;&lt;<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(cnt&lt;=<span class="hljs-number">2</span>)cout&lt;&lt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> cout&lt;&lt;<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>    <span class="hljs-type">int</span> t;<br>    cin&gt;&gt;t;<br>    <span class="hljs-keyword">while</span>(t--)&#123;<br>        <span class="hljs-built_in">solve</span>();<br>        cout&lt;&lt;endl;<br>    &#125;<br>&#125;<br><span class="hljs-comment">//code by yxisme;</span><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -338,6 +343,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/ACM/" class="category-chain-item">ACM</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%80%9D%E7%BB%B4/">#思维</a>
+      
+        <a href="/tags/codeforces-900/">#codeforces:900</a>
+      
+    </div>
   
 </div>
 
@@ -347,8 +382,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>好想去珠海航展啊</div>
-      <div>https://zeitspeed.github.io/2022/11/16/吐槽/</div>
+      <div>Codeforces 1823B Sort with Step</div>
+      <div>https://zeitspeed.github.io/2023/05/04/Codeforces1823B_Sort with Step/</div>
     </div>
     <div class="license-meta">
       
@@ -360,7 +395,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月16日</div>
+          <div>2023年5月4日</div>
         </div>
       
       
@@ -392,18 +427,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/04/Codeforces1823B_Sort%20with%20Step/" title="Codeforces 1823B Sort with Step">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Codeforces 1823B Sort with Step</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/15/Codeforces%201605C.%20Dominant%20Character/" title="Codeforces 1605C. Dominant Character">
-                        <span class="hidden-mobile">Codeforces 1605C. Dominant Character</span>
+                      <a href="/2022/11/16/%E5%90%90%E6%A7%BD/" title="好想去珠海航展啊">
+                        <span class="hidden-mobile">好想去珠海航展啊</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

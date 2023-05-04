@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Codeforces 1823B Sort with Step</title>
+    <link href="/2023/05/04/Codeforces1823B_Sort%20with%20Step/"/>
+    <url>/2023/05/04/Codeforces1823B_Sort%20with%20Step/</url>
+    
+    <content type="html"><![CDATA[<p>c</p><p>此题用a存储原数组，b数组存储改数字当前位置，判断当前数字位置是否与这个数字应该在的位置间的差对k求余是否等于零即可判断是否需要强转。由于题目说原数组是数列，所以方法是可行的。</p><p>我之前甚至想了逆序对的做法，还是天马行空了</p><p>上代码：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">2e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> a[N],b[N];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n,k;<br>    cin&gt;&gt;n&gt;&gt;k;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin&gt;&gt;a[i];<br>        b[a[i]]=i;<br>    &#125;<br>    <span class="hljs-type">int</span> cnt=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-type">int</span> c=<span class="hljs-built_in">abs</span>(b[i]-i);<br>        <span class="hljs-keyword">if</span>(c%k!=<span class="hljs-number">0</span>)cnt++;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(cnt==<span class="hljs-number">0</span>)cout&lt;&lt;<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(cnt&lt;=<span class="hljs-number">2</span>)cout&lt;&lt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> cout&lt;&lt;<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>    <span class="hljs-type">int</span> t;<br>    cin&gt;&gt;t;<br>    <span class="hljs-keyword">while</span>(t--)&#123;<br>        <span class="hljs-built_in">solve</span>();<br>        cout&lt;&lt;endl;<br>    &#125;<br>&#125;<br><span class="hljs-comment">//code by yxisme;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>ACM</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>思维</tag>
+      
+      <tag>codeforces:900</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>好想去珠海航展啊</title>
     <link href="/2022/11/16/%E5%90%90%E6%A7%BD/"/>
     <url>/2022/11/16/%E5%90%90%E6%A7%BD/</url>
