@@ -16,21 +16,22 @@
   <meta name="author" content="yxisme">
   <meta name="keywords" content="">
   
-    <meta name="description" content="B. Maximum Substring A binary string is a string consisting only of the characters 0 and 1. You are given a binary string s. For some non-empty substring† t of string s containing x characters 0 and y">
+    <meta name="description" content="A. Hero Named Magnus 题意：签到输出2n-1； 1234567891011121314151617181920#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;typedef long long ll;#define f(a,b,c) for(ll a&#x3D;b;a&lt;c;a++)void solve()&amp;#123;	ll x;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 1750B. Maximum Substring">
-<meta property="og:url" content="https://zeitspeed.github.io/2022/11/11/Codeforces%201750B.%20Maximum%20Substring/index.html">
+<meta property="og:title" content="The 2021 CCPC Guilin Onsite 补题+总结">
+<meta property="og:url" content="https://zeitspeed.github.io/2023/10/18/VPguilin2021/index.html">
 <meta property="og:site_name" content="Y X I S M E">
-<meta property="og:description" content="B. Maximum Substring A binary string is a string consisting only of the characters 0 and 1. You are given a binary string s. For some non-empty substring† t of string s containing x characters 0 and y">
+<meta property="og:description" content="A. Hero Named Magnus 题意：签到输出2n-1； 1234567891011121314151617181920#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;typedef long long ll;#define f(a,b,c) for(ll a&#x3D;b;a&lt;c;a++)void solve()&amp;#123;	ll x;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-11T08:46:59.973Z">
-<meta property="article:modified_time" content="2022-11-15T09:08:57.773Z">
+<meta property="article:published_time" content="2023-10-18T06:57:26.366Z">
+<meta property="article:modified_time" content="2023-10-19T08:38:37.727Z">
 <meta property="article:author" content="yxisme">
+<meta property="article:tag" content="补题">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Codeforces 1750B. Maximum Substring - Y X I S M E</title>
+  <title>The 2021 CCPC Guilin Onsite 补题+总结 - Y X I S M E</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Codeforces 1750B. Maximum Substring"></span>
+            <span id="subtitle" data-typed-text="The 2021 CCPC Guilin Onsite 补题+总结"></span>
           
         </div>
 
@@ -241,8 +242,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-11 16:46" pubdate>
-          2022年11月11日 下午
+        <time datetime="2023-10-18 14:57" pubdate>
+          2023年10月18日 下午
         </time>
       </span>
     
@@ -253,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.6k 字
         
       </span>
     
@@ -264,7 +265,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -314,12 +315,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Codeforces 1750B. Maximum Substring</h1>
+            <h1 style="display: none">The 2021 CCPC Guilin Onsite 补题+总结</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：1 年前
+                    本文最后更新于：5 个月前
                   
                 
               </p>
@@ -327,24 +328,26 @@
             
               <div class="markdown-body">
                 
-                <p>B. Maximum Substring</p>
-<p>A binary string is a string consisting only of the characters 0 and 1. You are given a binary string s.</p>
-<p>For some non-empty substring† t of string s containing x characters 0 and y characters 1, define its cost as:</p>
-<p>x⋅y, if x&gt;0 and y&gt;0;<br>x2, if x&gt;0 and y&#x3D;0;<br>y2, if x&#x3D;0 and y&gt;0.<br>Given a binary string s of length n, find the maximum cost across all its non-empty substrings.</p>
-<p>† A string a is a substring of a string b if a can be obtained from b by deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.</p>
-<p>Input<br>Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤105) — the number of test cases. The description of test cases follows.</p>
-<p>The first line of each test case contains a single integer n (1≤n≤2⋅105) — the length of the string s.</p>
-<p>The second line of each test case contains a binary string s of length n.</p>
-<p>It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.</p>
-<p>Output<br>For each test case, print a single integer — the maximum cost across all substrings.</p>
-<p>Example<br>inputCopy<br>6<br>5<br>11100<br>7<br>1100110<br>6<br>011110<br>7<br>1001010<br>4<br>1000<br>1<br>0<br>outputCopy<br>9<br>12<br>16<br>12<br>9<br>1<br>Note<br>In the first test case, we can take a substring 111. It contains 3 characters 1 and 0 characters 0. So a&#x3D;3, b&#x3D;0 and its cost is 32&#x3D;9.</p>
-<p>In the second test case, we can take the whole string. It contains 4 characters 1 and 3 characters 0. So a&#x3D;4, b&#x3D;3 and its cost is 4⋅3&#x3D;12.</p>
-<p>In the third test case, we can can take a substring 1111 and its cost is 42&#x3D;16.</p>
-<p>In the fourth test case, we can take the whole string and cost is 4⋅3&#x3D;12.</p>
-<p>In the fifth test case, we can take a substring 000 and its cost is 3⋅3&#x3D;9.</p>
-<p>In the sixth test case, we can only take the substring 0 and its cost is 1⋅1&#x3D;1.</p>
-<p>水</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">12</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>	ll n;<br>	string s;<br>	cin &gt;&gt; n &gt;&gt; s;<br>	ll len1 = <span class="hljs-number">0</span>, len0 = <span class="hljs-number">0</span>;<br>	ll maxv0=<span class="hljs-number">0</span>, maxv1 = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span> (s[n - <span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;0&#x27;</span>)s[n] = <span class="hljs-string">&#x27;1&#x27;</span>;<br>	<span class="hljs-keyword">else</span> s[n] = <span class="hljs-string">&#x27;0&#x27;</span>;<br> <br>	ll len00=<span class="hljs-number">0</span>, len11=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>		<span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;0&#x27;</span>) &#123;<br>			len0++;<br>			len00++;<br>		&#125;<br>		<span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; s[i + <span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;<br>			maxv0 = <span class="hljs-built_in">max</span>(maxv0, len0);<br>			len0 = <span class="hljs-number">0</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;<br>			len1++;<br>			len11++;<br>		&#125;<br>		<span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;1&#x27;</span> &amp;&amp; s[i + <span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;0&#x27;</span>) &#123;<br>			maxv1 = <span class="hljs-built_in">max</span>(maxv1, len1);<br>			len1 = <span class="hljs-number">0</span>;<br>		&#125;<br>	&#125;<br>	ll p = <span class="hljs-built_in">max</span>(<span class="hljs-built_in">pow</span>(maxv0, <span class="hljs-number">2</span>), <span class="hljs-built_in">pow</span>(maxv1, <span class="hljs-number">2</span>));<br>	ll maxv = <span class="hljs-built_in">max</span>(p, len00 * len11);<br>	cout &lt;&lt; maxv &lt;&lt; endl;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> </span>&#123;<br>	<span class="hljs-type">int</span> t; <br>	cin &gt;&gt; t;<br>	<span class="hljs-keyword">while</span> (t--) &#123;<br>		<span class="hljs-built_in">solve</span>();<br>	&#125;<br>&#125;<br><span class="hljs-comment">//code by yxisme;</span><br><span class="hljs-comment">//code by zeitspeed;</span><br><span class="hljs-comment">//welcome to yxisme.com;</span><br></code></pre></td></tr></table></figure>
+                <ul>
+<li><p>A. Hero Named Magnus</p>
+<p>题意：签到输出2n-1；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> f(a,b,c) for(ll a=b;a&lt;c;a++)</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>	ll x;<br>	cin&gt;&gt;x;<br>	cout&lt;&lt;x*<span class="hljs-number">2</span><span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	ios::sync_with_stdio;<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	ll t=<span class="hljs-number">1</span>;<br>	cin&gt;&gt;t;<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		<span class="hljs-built_in">solve</span>();<br>		<span class="hljs-keyword">if</span>(t)cout&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>​	</p>
+<ul>
+<li><p>I. PTSD</p>
+<p>题意：规律签到；</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> f(a,b,c) for(ll a=b;a&lt;c;a++)</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>	ll n;<br>	string s;<br>	cin&gt;&gt;n&gt;&gt;s;<br>	ll ans=<span class="hljs-number">0</span>;<br>	<span class="hljs-type">int</span> len=<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=n<span class="hljs-number">-2</span>;i&gt;=<span class="hljs-number">0</span>;--i)&#123;<br>		len++;<br>		<span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;0&#x27;</span>)<span class="hljs-keyword">continue</span>;<br>		<span class="hljs-keyword">if</span>(len&gt;=<span class="hljs-number">2</span>)&#123;<br>			ans+=i+<span class="hljs-number">1</span>;<br>			<span class="hljs-comment">// cout&lt;&lt;&quot;ans:&quot;&lt;&lt;ans&lt;&lt;&quot;\n&quot;;</span><br>			len-=<span class="hljs-number">2</span>;<br>		&#125;<br> <br>	&#125;<br>	cout&lt;&lt;ans;<br> <br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	ll t=<span class="hljs-number">1</span>;<br>	cin&gt;&gt;t;<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		<span class="hljs-built_in">solve</span>();<br>		<span class="hljs-keyword">if</span>(t)cout&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>G. Occupy the Cities</p>
+<p>题意：给出一串01字符串，其中每个1每次操作可以向左一位或向右一位将临近的0变为1，问最少多少次操作能将字符串变为全一。</p>
+<p>解题过程：一开始想的找规律，看到题意时我就有了一个想法：首先计算最外层两一间最大的两一位置差maxv，例如 001000100100 -&gt; maxv&#x3D;3，这时只要操作满足了这个最大差，那么该区间内的其他零也都能覆盖，处理完双一内圈后再处理外围零。但是最后发现要加不少特判遂作罢。然后y同学和w同学直接想到和题解一样的方法，但是找不到处理第一步的方法。赛后看了别人都用的二分答案才恍然大悟，记录一下我对此种解法的理解：直接对答案做二分，拿答案ANS去遍历字符串看是否符合题目要求，也就是每个0的最近左1或右1距离不超过ANS，此时就可以保证该零在该种操作数下可以被覆盖，如果该ANS完全符合，再次缩小ANS判断。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> u(a,b,c) for(int a=b;a&lt;c;a++)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> d(a,b,c) for(int a=b-1;a&gt;=c;a--)</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br>ll n;<br>string s;<br><span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">lo</span><span class="hljs-params">(N)</span>,<span class="hljs-title">ro</span><span class="hljs-params">(N)</span></span>;<span class="hljs-comment">//lo记录每个0左边1的位置，ro记录每个0右边1的位置</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">ck</span><span class="hljs-params">(ll p)</span></span>&#123;<span class="hljs-comment">//判断操作数p是否符合</span><br>    vector&lt;ll&gt;<span class="hljs-built_in">f</span>(n,<span class="hljs-number">0</span>);<span class="hljs-comment">//f记录1s&#x27;f</span><br>    <span class="hljs-built_in">u</span>(i,<span class="hljs-number">0</span>,n)&#123;<br>        <span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;1&#x27;</span>)<span class="hljs-keyword">continue</span>;<br>        <span class="hljs-keyword">if</span>(p&gt;=<span class="hljs-built_in">min</span>(i-lo[i],ro[i]-i)+<span class="hljs-number">1</span>)<span class="hljs-keyword">continue</span>;<br>        <span class="hljs-keyword">if</span>(lo[i]&gt;=<span class="hljs-number">0</span>&amp;&amp;lo[i]&lt;n&amp;&amp;!f[lo[i]]&amp;&amp;p&gt;=i-lo[i])&#123;<br>            f[lo[i]]=<span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(ro[i]&gt;=<span class="hljs-number">0</span>&amp;&amp;ro[i]&lt;n&amp;&amp;!f[ro[i]]&amp;&amp;p&gt;=ro[i]-i)&#123;<br>            f[ro[i]]=<span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;s;<br>    ll l=<span class="hljs-number">0</span>,r=n<span class="hljs-number">-1</span>;<br>    ll x=<span class="hljs-number">-1e9</span>;<br>    <span class="hljs-built_in">u</span>(i,<span class="hljs-number">0</span>,n)&#123;<br>        lo[i]=x;<br>        <span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;1&#x27;</span>)x=i;<br>    &#125;<br>    x=<span class="hljs-number">1e9</span>;<br>    <span class="hljs-built_in">d</span>(i,n,<span class="hljs-number">0</span>)&#123;<br>        ro[i]=x;<br>        <span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;1&#x27;</span>)x=i;<br>    &#125;<br>    <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>        ll mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">ck</span>(mid))&#123;<br>            r=mid;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            l=mid+<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    cout&lt;&lt;l;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>    ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    <span class="hljs-type">int</span> t=<span class="hljs-number">1</span>;<br>    cin&gt;&gt;t;<br>    <span class="hljs-keyword">while</span>(t--)&#123;<br>        <span class="hljs-built_in">solve</span>();<br>        <span class="hljs-keyword">if</span>(t)cout&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
 
                 
               </div>
@@ -353,6 +356,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CCPC/" class="category-chain-item">CCPC</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%A1%A5%E9%A2%98/">#补题</a>
+      
+    </div>
   
 </div>
 
@@ -362,8 +393,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Codeforces 1750B. Maximum Substring</div>
-      <div>https://zeitspeed.github.io/2022/11/11/Codeforces 1750B. Maximum Substring/</div>
+      <div>The 2021 CCPC Guilin Onsite 补题+总结</div>
+      <div>https://zeitspeed.github.io/2023/10/18/VPguilin2021/</div>
     </div>
     <div class="license-meta">
       
@@ -375,7 +406,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月11日</div>
+          <div>2023年10月18日</div>
         </div>
       
       
@@ -407,18 +438,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/11/CodeForces1744A.%20Number%20Replacement/" title="Codeforces 1744A. Number Replacement">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Codeforces 1744A. Number Replacement</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/11/Codeforces%201750A.%20Indirect%20Sort/" title="Codeforces 1750A. Indirect Sort">
-                        <span class="hidden-mobile">Codeforces 1750A. Indirect Sort</span>
+                      <a href="/2023/05/06/Codeforces1823C.Dreaming%20of%20Freedom/" title="Codeforces 1823B Sort with Step">
+                        <span class="hidden-mobile">Codeforces 1823B Sort with Step</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
